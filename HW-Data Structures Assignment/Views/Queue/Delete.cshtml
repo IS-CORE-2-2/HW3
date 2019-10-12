@@ -1,0 +1,25 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <div>
+        <label for="DeletRecord">Delete Record:</label>
+        @{
+            string delete = "Delete Record";//not working
+            Html.TextBox(delete);//not working
+            ViewBag.DeleteQueue = delete;
+        }
+        <a href="@Url.Action("Index", "Queue")"
+           class="w3-bar-item w3-button">Return to Queue Menu</a>
+    </div>
+</body>
+</html>

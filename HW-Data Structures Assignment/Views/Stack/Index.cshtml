@@ -1,0 +1,49 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Stack Index</title>
+</head>
+<body>
+    <div>
+        <ul>
+            <li>
+                <a href="@Url.Action("AddOne", "Stack")"
+                   class="w3-bar-item w3-button">Add one item to stack</a>
+            </li>
+            <li>
+                <a href="@Url.Action("AddLots", "Stack")"
+                   class="w3-bar-item w3-button">Add huge list of items to stack</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Display", "Stack")"
+                   class="w3-bar-item w3-button">Display stack</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Delete", "Stack")"
+                   class="w3-bar-item w3-button">Delete from stack</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Clear", "Stack")"
+                   class="w3-bar-item w3-button">Clear stack</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Search", "Stack")"
+                   class="w3-bar-item w3-button">Search stack</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Index", "Home")"
+                   class="w3-bar-item w3-button">Return</a>
+            </li>
+        </ul>
+    </div>
+
+    
+</body>
+</html>

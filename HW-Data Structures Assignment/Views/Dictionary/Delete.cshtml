@@ -1,0 +1,33 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete from Dictionary</title>
+</head>
+<body>
+    <div>
+        @{
+            if (IsPost)
+            {
+                string delete = Request["DeleteRecord"];
+                ViewBag.DeleteDictionary = delete;
+                Url.Action("DeleteRecord", "Dictionary");
+            }
+            else
+            {
+                <form method="post" action="">
+                    Delete Record:<br>
+                    <input type="text" name="DeleteRecord" value=""><br /><br />
+                    <input type="submit" value="Submit" class="submit">
+                </form>
+            }
+        }
+    </div>
+</body>
+</html>

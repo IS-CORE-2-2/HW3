@@ -1,0 +1,47 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <ul>
+            <li>
+                <a href="@Url.Action("AddOne", "Dictionary")"
+                   class="w3-bar-item w3-button">Add one item to dictionary</a>
+            </li>
+            <li>
+                <a href="@Url.Action("AddLots", "Dictionary")"
+                   class="w3-bar-item w3-button">Add huge list of items to dictionary</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Display", "Dictionary")"
+                   class="w3-bar-item w3-button">Display dictionary</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Delete", "Dictionary")"
+                   class="w3-bar-item w3-button">Delete from dictionary</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Clear", "Dictionary")"
+                   class="w3-bar-item w3-button">Clear dictionary</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Search", "Dictionary")"
+                   class="w3-bar-item w3-button">Search dictionary</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Index", "Home")"
+                   class="w3-bar-item w3-button">Return</a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <ul>
+            <li>
+                <a href="@Url.Action("AddOne", "Queue")"
+                   class="w3-bar-item w3-button">Add one item to queue</a>
+            </li>
+            <li>
+                <a href="@Url.Action("AddLots", "Queue")"
+                   class="w3-bar-item w3-button">Add huge list of items to queue</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Display", "Queue")"
+                   class="w3-bar-item w3-button">Display queue</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Delete", "Queue")"
+                   class="w3-bar-item w3-button">Delete from queue</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Clear", "Queue")"
+                   class="w3-bar-item w3-button">Clear queue</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Search", "Queue")"
+                   class="w3-bar-item w3-button">Search queue</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Index", "Home")"
+                   class="w3-bar-item w3-button">Return</a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

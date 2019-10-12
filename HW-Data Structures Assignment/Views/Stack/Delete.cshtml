@@ -1,0 +1,25 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete from Stack</title>
+</head>
+<body>
+    <div>
+        <label for="DeletRecord">Delete Record:</label>
+        @{
+            string delete = "Delete Record";
+            Html.TextBox(delete);//not working
+            ViewBag.DeleteStack = delete;
+        }
+        <a href="@Url.Action("Index", "Stack")"
+           class="w3-bar-item w3-button">Return to Stack Menu</a>
+    </div>
+</body>
+</html>

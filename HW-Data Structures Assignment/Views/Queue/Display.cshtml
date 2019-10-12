@@ -1,0 +1,23 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Display Queue</title>
+</head>
+<body>
+    <div>
+        @foreach (var sData in ViewBag.MyQueue)
+        {
+            <p>@sData</p>
+        }
+        <a href="@Url.Action("Index", "Queue")"
+           class="w3-bar-item w3-button">Return to Queue Menu</a>
+    </div>
+</body>
+</html>
