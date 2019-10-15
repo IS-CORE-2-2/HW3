@@ -175,7 +175,9 @@
     <Content Include="Views\Dictionary\Delete.cshtml" />
     <Content Include="Views\Dictionary\Index.cshtml" />
     <Content Include="Views\Queue\Index.cshtml" />
-    <Content Include="Views\Dictionary\DeleteRecord.cshtml" />
+    <Content Include="Views\Stack\Search.cshtml" />
+    <Content Include="Views\Queue\Search.cshtml" />
+    <Content Include="Views\Dictionary\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

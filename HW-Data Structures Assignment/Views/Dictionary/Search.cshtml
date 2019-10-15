@@ -8,12 +8,12 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Delete from Dictionary</title>
+    <title>Search</title>
 </head>
 <body>
     <div>
-        <h2>Delete Record Status</h2>
-        <p>@ViewBag.DeleteStatus</p>
+        <p>@ViewBag.DictionarySearchResults</p>
+        <p>It took @ViewBag.StopWatch to complete your search</p>
         <a href="@Url.Action("Index", "Dictionary")"
            class="w3-bar-item w3-button">Return to Dictionary Menu</a>
     </div>

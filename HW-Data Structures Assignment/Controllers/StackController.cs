@@ -47,7 +47,15 @@ namespace HW_Data_Structures_Assignment.Controllers
         //HINT: Use the ViewBag
         public ActionResult Delete()
         {
-
+            if (myStack.Count > 0)
+            {
+                myStack.Pop();
+                ViewBag.DeleteStatus = "Delete successful!";
+            }
+            else
+            {
+                ViewBag.DeleteStatus = "Delete unsuccessful. No values existed in the stack.";
+            }
             return View("Delete");
         }
 
@@ -63,7 +71,36 @@ namespace HW_Data_Structures_Assignment.Controllers
         //the view. You can pass this result back to the view in the ViewBag and display it somewhere on the view
         public ActionResult Search()
         {
-            return View("Index");
+            Stack<string> myStackTemp = new Stack<string>();
+            string testValue = "New Entry 54";
+            ViewBag.StackSearchResults = "Item not found.";
+            int myCount = myStack.Count();
+
+            System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+
+            sw.Start();
+
+            for (int iCount = 0; iCount < myCount; iCount++)
+            {
+                if (myStack.Peek() == testValue)
+                {
+                    ViewBag.StackSearchResults = "Item " + testValue + " found";
+                }
+                myStackTemp.Push(myStack.Pop());
+            }
+
+            sw.Stop();
+
+            TimeSpan ts = sw.Elapsed;
+
+            ViewBag.StopWatch = ts;
+
+            for (int iCount1 = 0; iCount1 < myCount; iCount1++)
+            {
+                myStack.Push(myStackTemp.Pop());
+            }
+
+            return View("Search");
         }
     }
 }

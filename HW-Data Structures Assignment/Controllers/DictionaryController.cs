@@ -47,6 +47,15 @@ namespace HW_Data_Structures_Assignment.Controllers
         //HINT: Use the ViewBag
         public ActionResult Delete()
         {
+            if (myDictionary.Count > 0)
+            {
+                myDictionary.Remove(0);
+                ViewBag.DeleteStatus = "Delete successful!";
+            }
+            else
+            {
+                ViewBag.DeleteStatus = "Delete unsuccessful. No values existed in the queue.";
+            }
             return View("Delete");
         }
 
@@ -80,7 +89,25 @@ namespace HW_Data_Structures_Assignment.Controllers
         //the view. You can pass this result back to the view in the ViewBag and display it somewhere on the view
         public ActionResult Search()
         {
-            return View("Index");
+            int testValue = 54;
+            ViewBag.DictionarySearchResults = "Item not found.";
+
+            System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+
+            sw.Start();
+
+            if (myDictionary.ContainsKey(testValue))
+            {
+                ViewBag.DictionarySearchResults = "Item " + testValue + " found";
+            }
+
+            sw.Stop();
+
+            TimeSpan ts = sw.Elapsed;
+
+            ViewBag.StopWatch = ts;
+
+            return View("Search");
         }
     }
 }

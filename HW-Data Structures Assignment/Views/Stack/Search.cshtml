@@ -8,13 +8,12 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Delete from Stack</title>
-    <link src="../Content/CopiedStyles.css"/>
+    <title>Search</title>
 </head>
 <body>
-    <div class="center">
-        <h2>Delete Record Status</h2>
-        <p>@ViewBag.DeleteStatus</p>
+    <div>
+        <p>@ViewBag.StackSearchResults</p>
+        <p>It took @ViewBag.StopWatch to complete your search</p>
         <a href="@Url.Action("Index", "Stack")"
            class="w3-bar-item w3-button">Return to Stack Menu</a>
     </div>
