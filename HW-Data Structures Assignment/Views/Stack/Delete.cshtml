@@ -3,20 +3,22 @@
     Layout = null;
 }
 
+<!--Delete record status in stack-->
 <!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Delete from Stack</title>
-    <link src="../Content/CopiedStyles.css"/>
+    <link src="../Content/CopiedStyles.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
     <div class="center">
         <h2>Delete Record Status</h2>
         <p>@ViewBag.DeleteStatus</p>
         <a href="@Url.Action("Index", "Stack")"
-           class="w3-bar-item w3-button">Return to Stack Menu</a>
+           class="w3-bar-item w3-button">Return to Stack Menu</a><!-- return to menu -->
     </div>
 </body>
 </html>

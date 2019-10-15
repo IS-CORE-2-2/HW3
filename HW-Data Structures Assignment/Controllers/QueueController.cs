@@ -8,8 +8,8 @@ namespace HW_Data_Structures_Assignment.Controllers
 {
     public class QueueController : Controller
     {
+        //static queue for use throughout life of program
         static Queue<string> myQueue = new Queue<string>();
-        // GET: Stack
         public ActionResult Index()
         {
             return View();
@@ -50,11 +50,11 @@ namespace HW_Data_Structures_Assignment.Controllers
             if (myQueue.Count > 0)
             {
                 myQueue.Dequeue();
-                ViewBag.DeleteStatus = "Delete successful!";
+                ViewBag.DeleteStatus = "Delete successful!";//if an item exists to delete
             }
             else
             {
-                ViewBag.DeleteStatus = "Delete unsuccessful. No values existed in the queue.";
+                ViewBag.DeleteStatus = "Delete unsuccessful. No values existed in the queue.";//if empty
             }
             return View("Delete");
         }
@@ -71,15 +71,16 @@ namespace HW_Data_Structures_Assignment.Controllers
         //the view. You can pass this result back to the view in the ViewBag and display it somewhere on the view
         public ActionResult Search()
         {
-            Queue<string> myQueueTemp = new Queue<string>();
-            string testValue = "New Entry 54";
-            ViewBag.QueueSearchResults = "Item not found.";
-            int myCount = myQueue.Count();
+            Queue<string> myQueueTemp = new Queue<string>();//temporary queue
+            string testValue = "New Entry 54";//random value
+            ViewBag.QueueSearchResults = "Item not found.";//"not found" until proven false
+            int myCount = myQueue.Count();//initial count of myQueue
 
+            //Stopwatch started
             System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
-
             sw.Start();
 
+            //loop to find value and put dequeued values  in another queue
             for (int iCount = 0; iCount < myCount; iCount++)
             {
                 if (myQueue.Peek() == testValue)
@@ -89,12 +90,12 @@ namespace HW_Data_Structures_Assignment.Controllers
                 myQueueTemp.Enqueue(myQueue.Dequeue());
             }
 
+            //stop time
             sw.Stop();
-
             TimeSpan ts = sw.Elapsed;
-
             ViewBag.StopWatch = ts;
 
+            //put items back in queue
             for (int iCount1 = 0; iCount1 < myCount; iCount1++)
             {
                 myQueue.Enqueue(myQueueTemp.Dequeue());

@@ -8,8 +8,8 @@ namespace HW_Data_Structures_Assignment.Controllers
 {
     public class StackController : Controller
     {
+        //static stack controller for use in life of program
         static Stack<string> myStack = new Stack<string>();
-        // GET: Stack
         public ActionResult Index()
         {
             return View();
@@ -50,11 +50,11 @@ namespace HW_Data_Structures_Assignment.Controllers
             if (myStack.Count > 0)
             {
                 myStack.Pop();
-                ViewBag.DeleteStatus = "Delete successful!";
+                ViewBag.DeleteStatus = "Delete successful!";//item found to delete
             }
             else
             {
-                ViewBag.DeleteStatus = "Delete unsuccessful. No values existed in the stack.";
+                ViewBag.DeleteStatus = "Delete unsuccessful. No values existed in the stack.";//no items in stack
             }
             return View("Delete");
         }
@@ -71,15 +71,16 @@ namespace HW_Data_Structures_Assignment.Controllers
         //the view. You can pass this result back to the view in the ViewBag and display it somewhere on the view
         public ActionResult Search()
         {
-            Stack<string> myStackTemp = new Stack<string>();
-            string testValue = "New Entry 54";
-            ViewBag.StackSearchResults = "Item not found.";
-            int myCount = myStack.Count();
+            Stack<string> myStackTemp = new Stack<string>();//temp stack
+            string testValue = "New Entry 54";//hard coded value
+            ViewBag.StackSearchResults = "Item not found.";//"not found" until found false
+            int myCount = myStack.Count();//initial count of stack
 
+            //start timer
             System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
-
             sw.Start();
 
+            //loop to find value and pop values, pushing them onto temp stack
             for (int iCount = 0; iCount < myCount; iCount++)
             {
                 if (myStack.Peek() == testValue)
@@ -89,12 +90,12 @@ namespace HW_Data_Structures_Assignment.Controllers
                 myStackTemp.Push(myStack.Pop());
             }
 
+            //end stopwatch
             sw.Stop();
-
             TimeSpan ts = sw.Elapsed;
-
             ViewBag.StopWatch = ts;
 
+            //put values back on stack
             for (int iCount1 = 0; iCount1 < myCount; iCount1++)
             {
                 myStack.Push(myStackTemp.Pop());

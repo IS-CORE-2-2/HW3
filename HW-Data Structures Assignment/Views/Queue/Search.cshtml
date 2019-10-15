@@ -3,19 +3,21 @@
     Layout = null;
 }
 
+<!--Results of Search-->
 <!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Search</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
     <div>
         <p>@ViewBag.QueueSearchResults</p>
         <p>It took @ViewBag.StopWatch to complete your search</p>
         <a href="@Url.Action("Index", "Queue")"
-           class="w3-bar-item w3-button">Return to Queue Menu</a>
+           class="w3-bar-item w3-button">Return to Queue Menu</a><!--return to menu-->
     </div>
 </body>
 </html>

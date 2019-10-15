@@ -8,8 +8,10 @@ namespace HW_Data_Structures_Assignment.Controllers
 {
     public class DictionaryController : Controller
     {
+        //static dictionary for life of program
         static Dictionary<int, string> myDictionary = new Dictionary<int, string>();
-        // GET: Stack
+
+        //index view
         public ActionResult Index()
         {
             return View();
@@ -24,7 +26,7 @@ namespace HW_Data_Structures_Assignment.Controllers
         }
 
         //first clears the data structure and then generate 2,000 items in the data structure with the value of “New Entry” 
-        //concatenated with the number. For example, New Entry 1, New Entry 2, New Entry 3. 
+        //concatenated with the number.
         public ActionResult AddLots()
         {
             myDictionary.Clear();
@@ -36,7 +38,7 @@ namespace HW_Data_Structures_Assignment.Controllers
         }
 
         //display the contents of the data structure. You must use the foreach loop when displaying the data. 
-        //Handle any errors and inform the user. NOTE: You can send it back to the Index view or make another view
+        //Handle any errors and inform the user. 
         public ActionResult Display()
         {
             ViewBag.MyDictionary = myDictionary;
@@ -44,38 +46,22 @@ namespace HW_Data_Structures_Assignment.Controllers
         }
 
         //delete any item from the structure. Handle any errors and inform the user somewhere on the form if it cannot delete. 
-        //HINT: Use the ViewBag
         public ActionResult Delete()
         {
             if (myDictionary.Count > 0)
             {
+                //if an item can be removed
                 myDictionary.Remove(0);
                 ViewBag.DeleteStatus = "Delete successful!";
             }
             else
             {
+                //no items in dictionary
                 ViewBag.DeleteStatus = "Delete unsuccessful. No values existed in the queue.";
             }
             return View("Delete");
         }
 
-        public ActionResult DeleteRecord()
-        {
-            string delete = ViewBag.DeleteDictionary;
-            foreach (KeyValuePair<int, string> isEntry in myDictionary)
-            {
-                if (isEntry.Value == delete)
-                {
-                    ViewBag.DeleteDictionaryResults = delete + " was successfully deleted from the dictionary.";
-                    myDictionary.Remove(isEntry.Key);
-                }
-                else
-                {
-                    ViewBag.DeleteDictionaryResults = delete + " could not be found in the dictionary.";
-                }
-            }
-            return View("DeleteRecord");
-        }
 
         //wipe out the contents of the data structure
         public ActionResult Clear()
@@ -89,11 +75,11 @@ namespace HW_Data_Structures_Assignment.Controllers
         //the view. You can pass this result back to the view in the ViewBag and display it somewhere on the view
         public ActionResult Search()
         {
-            int testValue = 54;
-            ViewBag.DictionarySearchResults = "Item not found.";
+            int testValue = 54; //hardcoded value
+            ViewBag.DictionarySearchResults = "Item not found.";//automatically stores "item not found" until proven false
 
+            //stopwatch declared and started
             System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
-
             sw.Start();
 
             if (myDictionary.ContainsKey(testValue))
@@ -101,10 +87,9 @@ namespace HW_Data_Structures_Assignment.Controllers
                 ViewBag.DictionarySearchResults = "Item " + testValue + " found";
             }
 
+            //stopwatch ended
             sw.Stop();
-
             TimeSpan ts = sw.Elapsed;
-
             ViewBag.StopWatch = ts;
 
             return View("Search");
